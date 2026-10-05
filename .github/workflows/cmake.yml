@@ -23,3 +23,14 @@ jobs:
         with:
           options: CMAKE_CXX_STANDARD=${{ matrix.cxx_standard }}
         
+
+  cmake-no-install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout project
+        uses: actions/checkout@v5
+
+      - name: build without installation
+        uses: threeal/cmake-action@v2.0.0
+        with:
+          options: CMAKE_CXX_STANDARD=11 JSONCPP_WITH_INSTALL=OFF
